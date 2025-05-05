@@ -5,6 +5,7 @@ import addCallback from "./callbacks/add.js"
 import catCallback from "./callbacks/cat.js"
 import cdCallback from "./callbacks/cd.js"
 import compressHandler from "./callbacks/compress.js"
+import cpCallback from "./callbacks/cp.js"
 import decompressHandler from "./callbacks/decompress.js"
 import hashCallback from "./callbacks/hash.js"
 import lsCallback from "./callbacks/ls.js"
@@ -13,17 +14,11 @@ import osCallback from "./callbacks/os.js"
 import rmCallback from "./callbacks/rm.js"
 import rnCallback from "./callbacks/rn.js"
 import upCallback from "./callbacks/up.js"
-import {
-  oneLengthCommands,
-  osCommands,
-  threeLengthCommands,
-  twoLengthCommands,
-} from "./const/commandsArr.js"
+import { oneLengthCommands, osCommands, threeLengthCommands, twoLengthCommands } from "./const/commandsArr.js"
 import { errorMsg } from "./const/errorMsg.js"
 import currentDirectory from "./helpers/currentDirectory.js"
 import exitProcess from "./helpers/exitProcess.js"
 import welcomeProcess from "./helpers/welcomeProcess.js"
-import cpCallback from "./callbacks/cp.js"
 
 const myEmitter = new EventEmitter()
 
@@ -72,7 +67,6 @@ stdin.on("data", (data) => {
 })
 
 currentDirectory()
-
 process.on("SIGINT", () => {
   exitProcess()
 })
